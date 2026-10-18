@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-10-18T16:59:09.786Z",
+  "visit": "76cef1ed-cbc0-4854-bd02-94e0e13dd3b6",
+  "passed": true,
+  "checks": [
+    "one-click sample prepares two source reports",
+    "draft stays hidden from patient",
+    "patient cannot access clinician",
+    "simplified clinician UI deployed",
+    "clinician approve button verified in browser",
+    "patient sees approved explanation",
+    "new draft prepared for user trial"
+  ],
+  "summaryStatus": "draft"
+}

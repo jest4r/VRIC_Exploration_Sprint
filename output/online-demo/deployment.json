@@ -1,0 +1,15 @@
+{
+  "project_id": "appgprj_6ad48a4de31c8191b811f6e886c42dd9",
+  "url": "https://nhip-kham-vric-demo.racinggecko18.chatgpt.site",
+  "access": "public; each visit requires role-specific invitation",
+  "storage": "D1",
+  "ai": "mock only",
+  "expiresAt": "2026-10-25T09:16:53.872Z",
+  "httpVerification": "host-check.json",
+  "operatorLinks": "private/LINKS-RIENG.html",
+  "version": 5,
+  "commit_sha": "33983ce67093016321549e44480e599b3dc9b555",
+  "deployment_id": "appgdep_6ad4fbff921081918757a6da7994012d",
+  "status": "succeeded",
+  "focus": "clinician preliminary summary, source flags, review approval"
+}

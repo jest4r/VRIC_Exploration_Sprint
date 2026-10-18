@@ -1,0 +1,13 @@
+/tmp/
+.env
+.env.*
+!.env.example
+node_modules/
+__pycache__/
+.venv/
+
+# Local prototype sessions (synthetic, not submission evidence)
+/05-prototype/.local/
+
+# Private invitation links; never commit or publish
+/output/online-demo/private/

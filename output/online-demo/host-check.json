@@ -1,0 +1,32 @@
+{
+  "checkedAt": "2026-10-18T09:16:58.453Z",
+  "origin": "https://nhip-kham-vric-demo.racinggecko18.chatgpt.site",
+  "checks": [
+    "anonymous denied",
+    "patient cannot access staff",
+    "route can progress while results pending",
+    "out-of-order results",
+    "draft hidden",
+    "approval releases explanation",
+    "source change invalidates approval",
+    "reset preserves invitation"
+  ],
+  "passed": true,
+  "sessions": [
+    {
+      "label": "T1",
+      "id": "57ff614d-d749-45a8-9f7b-b70b4fe58610",
+      "expiresAt": 1792919813872
+    },
+    {
+      "label": "T2",
+      "id": "6e98ad35-2fdf-4b9d-bdba-75c76c432ace",
+      "expiresAt": 1792919813872
+    },
+    {
+      "label": "T3",
+      "id": "76cef1ed-cbc0-4854-bd02-94e0e13dd3b6",
+      "expiresAt": 1792919813872
+    }
+  ]
+}
