@@ -1,5 +1,12 @@
 # Thay đổi và lý do
 
+## 19/10/2026 — checklist trải nghiệm
+
+- Hoàn thiện phiên giả lập Trần Đức Đăng Khôi, chuyên khoa Sản khoa.
+- Ưu tiên siêu âm với phép đo CRL, NT, tim thai và tuổi thai; thêm nhận định hỗ trợ và mức tin cậy trước bước bác sĩ duyệt.
+- Bổ sung hướng dẫn thao tác trực tiếp trên màn hình bệnh nhân.
+- Thêm test riêng cho luồng siêu âm; toàn bộ 19 test prototype đạt.
+
 ## 0.1.0 — 17/10/2026
 
 Thay đổi từ scaffold sang prototype có thể chạy; **chưa có thay đổi dựa trên test người dùng**.

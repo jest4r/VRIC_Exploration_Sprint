@@ -21,6 +21,20 @@ test('patient tick is separate; service completion permits next room while resul
  completeService(v, 'blood'); assert.equal(route(v), 'imaging'); assert.equal(v.tasks[0].result, null);
  assert.throws(() => completeService(v, 'consult'), /điều kiện/);
 });
+
+test('synthetic obstetric profile prioritizes ultrasound measurements and keeps result-specific assessment', async () => {
+ const v = performed();
+ assert.deepEqual(v.patient, { name: 'Trần Đức Đăng Khôi', specialty: 'Sản khoa', synthetic: true });
+ publishResult(v, 'imaging');
+ const ultrasound = v.tasks.find(t => t.id === 'imaging').result;
+ assert.deepEqual(ultrasound.readings.map(reading => reading.name), ['CRL', 'NT', 'Tim thai', 'Tuổi thai theo siêu âm']);
+ const sections = await generateSections(sources(v), 'demo');
+ assert.equal(sections[0].assessment.includes('bác sĩ'), true);
+ assert.equal(sections[0].confidence, 'thấp');
+ finishDraft(v, startDraft(v), sections, 'demo');
+ assert.equal(viewVisit(v).summary, null);
+ assert.equal(viewVisit(v, 'staff').summary.sections[0].assessment, sections[0].assessment);
+});
 test('blocked rooms, priorities and changed directions are respected', () => {
  const v = createVisit(); configure(v, 'blood', { available: false }); assert.equal(route(v), null);
  configure(v, 'blood', { available: true, room: 'A99', directions: 'Tới quầy\nRẽ phải' });

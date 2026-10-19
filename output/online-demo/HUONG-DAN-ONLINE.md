@@ -10,6 +10,8 @@ Phiên có hạn **7 ngày từ lúc tạo**. Đặt lại không gia hạn. Ch�
 
 ## Bản tối giản: thử đọc và duyệt kết quả trước
 
+Phiên thử hiện tại dùng hồ sơ giả lập **Trần Đức Đăng Khôi · Sản khoa**. Ưu tiên kiểm tra phiếu **siêu âm** và các phép đo CRL, NT, tim thai, tuổi thai. Xét nghiệm được giải thích theo nguồn/cờ. Nhận định hỗ trợ không phải chẩn đoán; chỉ hiển thị cho người bệnh sau khi bác sĩ đối chiếu và duyệt.
+
 Màn hình bác sĩ hiện ưu tiên **Tổng hợp sơ bộ → Chỉ số cần chú ý → Duyệt & gửi**. Khi phiên chưa có phiếu, bấm **Nạp kết quả mẫu** để tới ngay bước đọc kết quả. Nút này chỉ bổ sung dữ liệu giả lập còn thiếu, không ghi đè phiếu hoặc nội dung đã duyệt. Chỉ bác sĩ/nhân viên có quyền nạp mẫu.
 
 1. Đọc phần tổng hợp và nêu chỉ số cần chú ý. Cờ H/L/CRITICAL, số liệu, đơn vị và phiên bản đều lấy từ phiếu nguồn; không có ngưỡng hoặc chẩn đoán AI tự thêm.

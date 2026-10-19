@@ -7,6 +7,7 @@ export const copy = value => structuredClone(value);
 export function createVisit() {
   return {
     id: randomUUID(), revision: 0, sourceVersion: 0, createdAt: new Date().toISOString(),
+    patient: { name: 'Trần Đức Đăng Khôi', specialty: 'Sản khoa', synthetic: true },
     summary: null, generationId: null, events: [],
     tasks: [
       { id: 'blood', name: 'Lấy mẫu xét nghiệm', kind: 'lab', priority: 1, room: 'L01', floor: 'Tầng 1',
@@ -28,7 +29,16 @@ export function sampleResult(task, revision = 1) {
     { name: 'Glucose', value: revision === 1 ? '6.2' : '6.3', unit: 'mmol/L', flag: 'H', reference: 'Không thiết lập khoảng tham chiếu trong demo' },
     { name: 'Hemoglobin', value: '135', unit: 'g/L', flag: '', reference: 'Không thiết lập khoảng tham chiếu trong demo' }
   ];
-  else base.report = 'Bản mô tả chẩn đoán hình ảnh minh họa. Không có ảnh y khoa được phân tích trong demo. Kết luận chuyên môn cần bác sĩ xác nhận.';
+  else {
+    base.source = 'PHIẾU SIÊU ÂM SẢN KHOA GIẢ LẬP · không phải hồ sơ thật';
+    base.readings = [
+      { name: 'CRL', value: revision === 1 ? '58.4' : '59.1', unit: 'mm', flag: '', reference: 'Phép đo giả lập; đối chiếu tuổi thai và mặt cắt chuẩn' },
+      { name: 'NT', value: revision === 1 ? '1.8' : '2.0', unit: 'mm', flag: '', reference: 'Phép đo giả lập; không dùng riêng để kết luận nguy cơ' },
+      { name: 'Tim thai', value: revision === 1 ? '164' : '162', unit: 'bpm', flag: '', reference: 'Phép đo giả lập; cần đối chiếu chất lượng tín hiệu' },
+      { name: 'Tuổi thai theo siêu âm', value: '12 tuần 2 ngày', unit: '', flag: '', reference: 'Ước tính giả lập; bác sĩ xác nhận' }
+    ];
+    base.report = 'Mô tả siêu âm sản khoa giả lập. Nhận định hỗ trợ cần bác sĩ đối chiếu ảnh, mặt cắt, tuổi thai và bối cảnh lâm sàng.';
+  }
   return base;
 }
 export function blockers(visit, task) {
@@ -107,11 +117,13 @@ export function validateSections(sections, results) {
   for (const section of sections) {
     check(section && results.some(r => r.id === section.resultId) && !ids.has(section.resultId), 'AI trả nguồn trùng hoặc không tồn tại.', 422);
     check(typeof section.explanation === 'string' && section.explanation.trim().length >= 10 && section.explanation.length <= 1000, 'Giải thích thiếu hoặc quá dài.', 422);
+    check(typeof section.assessment === 'string' && section.assessment.length <= 1000 && !/(chẩn đoán là|bạn (bị|mắc)|điều trị|kê đơn)/iu.test(section.assessment), 'Nhận định hỗ trợ vượt phạm vi cho phép.', 422);
+    check(['thấp', 'vừa', 'cao', ''].includes(section.confidence), 'Mức tin cậy không hợp lệ.', 422);
     check(!/\d/.test(section.explanation), 'Phần giải thích không được tạo số liệu; xem số liệu tại nguồn.', 422);
     check(!/(bạn (bị|mắc)|chẩn đoán là|nên (uống|dùng)|kê đơn|tăng liều|giảm liều)/iu.test(section.explanation), 'Nội dung có dấu hiệu vượt phạm vi giải thích.', 422);
     ids.add(section.resultId);
   }
-  return sections.map(s => ({ resultId: s.resultId, explanation: s.explanation.trim() }));
+  return sections.map(s => ({ resultId: s.resultId, assessment: s.assessment.trim(), confidence: s.confidence, explanation: s.explanation.trim() }));
 }
 export function finishDraft(visit, pending, sections, mode) {
   check(visit.sourceVersion === pending.sourceVersion && visit.generationId === pending.token, 'Nguồn hoặc yêu cầu đã thay đổi khi AI đang soạn. Hãy tạo lại.', 409);

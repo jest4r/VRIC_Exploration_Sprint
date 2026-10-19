@@ -36,10 +36,12 @@ Chế độ điện thoại mặc định dùng cổng 4174, chọn IP card Wi-F
 
 ## Kịch bản xem nhanh
 
+**Phiếu thử nghiệm ưu tiên:** phiên mới tạo sẵn hồ sơ giả lập **Trần Đức Đăng Khôi · Sản khoa**. Siêu âm là kết quả trọng tâm: phiếu có các phép đo CRL, NT, tim thai và tuổi thai để thử nhận định hỗ trợ. Xét nghiệm được giải thích theo giá trị/cờ nguồn; không cần AI để suy luận thêm. Nhận định hỗ trợ không phải chẩn đoán và chỉ được gửi sau khi bác sĩ đối chiếu, chỉnh sửa nếu cần và duyệt.
+
 1. Người bệnh xem phòng L01, chỉ dẫn và bấm “Đã thực hiện tại phòng”. Đây chỉ là xác nhận của người dùng.
 2. Tại màn hình nhân viên cùng phiên, xác nhận hoàn tất lấy mẫu. Người bệnh được chỉ tới C02 dù xét nghiệm chưa có kết quả.
 3. Xác nhận thực hiện chẩn đoán hình ảnh. Phát hành kết quả mẫu hình ảnh trước xét nghiệm để thử thứ tự về khác thứ tự thực hiện.
-4. Khi mỗi phiếu được phát hành, máy chủ **tự soạn lại bản nháp mẫu**, tổng hợp các kết quả đang có. Người bệnh chỉ thấy phiếu gốc; giải thích vẫn chờ duyệt.
+4. Khi mỗi phiếu được phát hành, máy chủ **tự soạn lại bản nháp mẫu**, tổng hợp các kết quả đang có. Bản nháp siêu âm ưu tiên nhận định các phép đo; bản nháp xét nghiệm chỉ giải thích theo nguồn/cờ. Người bệnh chỉ thấy phiếu gốc; nhận định và giải thích vẫn chờ duyệt.
 5. Phát hành kết quả xét nghiệm; bác sĩ mô phỏng so sánh nguồn với bản nháp, sửa nếu cần, bấm “Duyệt & gửi · mô phỏng”. Sau đó người bệnh mới thấy giải thích.
 6. Sửa một phiếu nguồn hoặc phát hành mẫu phiên bản mới: bản duyệt cũ mất hiệu lực; bản nháp mẫu mới cần duyệt lại.
 7. Khi các dịch vụ và kết quả cần thiết đã đủ, người bệnh được chỉ về K03. Xác nhận tư vấn hoàn tất để kết thúc lộ trình demo.
@@ -53,7 +55,7 @@ Chế độ điện thoại mặc định dùng cổng 4174, chọn IP card Wi-F
 
 Chỉ khi bấm “Soạn bằng AI thật”, máy chủ gửi dữ liệu giả lập qua Responses API và có thể phát sinh phí tài khoản API. Không tự gọi AI thật sau mỗi phiếu; bản nháp tự động mặc định vẫn là demo và có nhãn rõ. Lỗi AI thật không tự chuyển sang mẫu để giả thành thành công.
 
-Prompt thực thi: [lib/ai.mjs](lib/ai.mjs). AI trả các mục `{resultId, explanation}`; số liệu, đơn vị, cờ và nguồn được giữ trong dữ liệu gốc. Giải thích không lặp số liệu, tránh tạo giá trị mới. Kiểm tra schema, nguồn, độ dài và một số mẫu nội dung vượt phạm vi chỉ là lớp kiểm tra kỹ thuật; không chứng minh nội dung đúng y khoa. Xem [prompt log](prompts.md).
+Prompt thực thi: [lib/ai.mjs](lib/ai.mjs). AI trả các mục `{resultId, assessment, confidence, explanation}`; số liệu, đơn vị, cờ và nguồn được giữ trong dữ liệu gốc. `assessment` là nhận định hỗ trợ, không phải chẩn đoán; `confidence` là nhãn định tính, không phải xác suất. Kiểm tra schema, nguồn, độ dài và nội dung vượt phạm vi chỉ là lớp kỹ thuật; không chứng minh nội dung đúng y khoa. Xem [prompt log](prompts.md).
 
 ## Quy tắc và giới hạn
 

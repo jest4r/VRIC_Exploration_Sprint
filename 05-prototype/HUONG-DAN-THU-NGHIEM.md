@@ -23,6 +23,12 @@ Nếu Windows hiện yêu cầu cho Node truy cập mạng, cho phép trên mạ
 
 ## 2. Chạy thử một vòng trước khi mời người thật
 
+### Phiếu thử nghiệm mẫu
+
+Phiên mới tạo sẵn là dữ liệu giả lập của **Trần Đức Đăng Khôi**, chuyên khoa **Sản khoa**. Trên điện thoại, người thử đọc hướng dẫn ngay đầu tab Hành trình: đọc phòng và chỉ dẫn, bấm xác nhận đã thực hiện, rồi chờ nhân viên xác nhận. Không nhập thêm tên, bệnh hoặc kết quả thật.
+
+Trọng tâm buổi thử là **siêu âm**. Khi phiếu siêu âm được phát hành, hãy kiểm tra các phép đo hiển thị nguyên trạng và nhận định hỗ trợ riêng của phiếu. Xét nghiệm được dùng để thử cách giải thích theo cờ/nguồn, không yêu cầu AI suy luận chẩn đoán. Bác sĩ phải đối chiếu nguồn và bối cảnh trước khi duyệt; “nhận định hỗ trợ” không phải chẩn đoán.
+
 Mở T1 hai phía. Ở giao diện người bệnh, bấm “Đặt lại demo ↻” → “Xác nhận đặt lại” để bắt đầu từ trắng. Đây là bước diễn tập; trước test T1 thật cần đặt lại lần nữa.
 
 | Bước | Điện thoại — người bệnh | Máy tính — nhân viên/bác sĩ | Kết quả cần thấy |
