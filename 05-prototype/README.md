@@ -60,7 +60,7 @@ Prompt thực thi: [lib/ai.mjs](lib/ai.mjs). AI trả các mục `{resultId, ass
 ## Quy tắc và giới hạn
 
 - Cấu hình demo: lấy mẫu → hình ảnh được mở khi lấy mẫu hoàn tất → bác sĩ khi cả hai dịch vụ và kết quả đã đủ. Đây là quan hệ phụ thuộc **giả lập**, không phải yêu cầu lâm sàng Vinmec.
-- Thứ tự chọn phòng: đủ điều kiện, sẵn sàng, ưu tiên số nhỏ trước; cùng ưu tiên chọn thời gian chờ nhỏ hơn. Không có tối ưu hóa lịch thực hoặc định vị trong nhà.
+- Thứ tự chọn phòng: chỉ xét phòng đủ điều kiện và sẵn sàng, sau đó chọn ước tính tới lượt thấp nhất (`waitMinutes + waitingCount × averageServiceMinutes`); `priority` chỉ dùng khi các ước tính bằng nhau. Đây là hàng đợi giả lập, không phải tối ưu hóa lịch thực hoặc định vị trong nhà.
 - Trạng thái dịch vụ, kết quả và duyệt tách biệt. Bác sĩ xem kết quả gốc vẫn được khi AI lỗi; bản duyệt AI không phải điều kiện để quay lại bác sĩ.
 - Cờ H/L/CRITICAL chỉ sao chép từ phiếu nguồn giả lập; không có ngưỡng suy luận bệnh. Không đọc ảnh, chẩn đoán hoặc tư vấn điều trị.
 - Có lưu phiên, kiểm tra phiên bản chống ghi đè, chặn phản hồi AI đã cũ và giới hạn kích thước yêu cầu.
@@ -76,7 +76,7 @@ Prompt thực thi: [lib/ai.mjs](lib/ai.mjs). AI trả các mục `{resultId, ass
 | `GET /api/visits/:id` | Trạng thái dành cho người bệnh; không trả bản nháp hoặc nhật ký nội bộ |
 | `POST /api/visits/:id/patient-confirm` | `{expectedRevision, taskId}`: tick của người bệnh |
 | `POST .../complete` | Nhân viên mô phỏng xác nhận thực hiện |
-| `POST .../configure` | `taskId, room, floor, directions, available, waitMinutes, priority` |
+| `POST .../configure` | `taskId, room, floor, directions, available, waitMinutes, waitingCount, averageServiceMinutes, priority` |
 | `POST .../result` | `taskId`, tùy chọn `result`: phát hành nguồn, hủy duyệt cũ, tự soạn bản mẫu |
 | `POST .../draft` | `mode: demo/live`: soạn lại bản nháp |
 | `POST .../review` | `draftId, action: approve/reject`, `sections` khi duyệt |
@@ -90,4 +90,17 @@ Mọi POST cập nhật phiên cần `expectedRevision`; sai phiên bản trả 
 npm test
 ```
 
-Xem [kiểm tra kỹ thuật](technical-validation.md), [kịch bản test người thật](test-log.md) và [thay đổi](changelog.md). Kiểm tra tự động không thay 2–3 phiên thử với người thật.
+Xem [kiểm tra kỹ thuật](technical-validation.md), [kịch bản test người thật](test-log.md), [kế hoạch experiment](experiment-plan.md) và [thay đổi](changelog.md). Kiểm tra tự động không thay 2–3 phiên thử với người thật.
+
+## Checklist review sử dụng sản phẩm — 20/10/2026
+
+Hai review đầu vào đã phát hiện các vấn đề cần xử lý trước khi coi prototype là dễ hiểu với người bệnh và nhân viên:
+
+- [x] **Điều phối theo thời gian chờ:** hiển thị số người đang đợi, thời gian xử lý trung bình và ước tính tới lượt; app đề xuất đi phòng nào trước. Dữ liệu vẫn là hàng đợi giả lập, cần thử lại với người dùng.
+- [ ] **Giải thích kết quả cho người bệnh:** thay câu mẫu chung bằng giải thích có ngữ cảnh, nói rõ ý nghĩa cờ H/L trong phạm vi demo, và diễn giải các chỉ số siêu âm đang hiển thị. Nội dung vẫn phải nêu giới hạn và yêu cầu bác sĩ duyệt.
+- [ ] **Ngôn ngữ giao diện người bệnh:** ẩn hoặc đổi các mã kỹ thuật như `blood-result · v1`, `imaging-result` và `Nguồn: blood-result` thành nhãn dễ hiểu; thống nhất số phiên bản trên phiếu và phần giải thích.
+- [ ] **Màn hình đầu trên điện thoại:** rút gọn hoặc cho phép đóng “Cách dùng màn hình này”, để điểm đến tiếp theo xuất hiện ngay trong vùng nhìn đầu tiên.
+- [ ] **Thao tác đặt lại:** tăng kích thước và tách nút “Đặt lại demo” khỏi vùng chân trang để giảm bấm nhầm trên điện thoại.
+- [ ] **Màn hình nhân viên:** bỏ khối lặp và chỉ hiển thị mỗi hành động soạn một lần; khóa “Xác nhận hoàn tất” sau khi đã xác nhận và làm rõ trạng thái đã hoàn tất.
+
+Đây là các phát hiện trải nghiệm, chưa phải bằng chứng về thời gian xét nghiệm, độ chính xác y khoa hoặc hiệu quả điều trị. Chi tiết và trích dẫn nằm trong [nhật ký review](test-log.md); sau khi sửa cần thử lại riêng các mục trên với người bệnh và nhân viên.

@@ -16,6 +16,16 @@ AI hỗ trợ phân tích ngày 17/10/2026. Mức độ dưới đây là đánh
 | R10 | Người ít kỹ năng số khó sử dụng — vừa/cao | Chữ dễ đọc, nhãn kèm biểu tượng, cách tìm hỗ trợ trực tiếp | Cần test với nhóm phù hợp; không tuyên bố đạt chứng nhận accessibility |
 | R11 | Vai nhân viên bị dùng như phân quyền thật — cao | Mặc định localhost; chế độ điện thoại dùng IP mạng nội bộ có chủ đích; chỉ phục vụ file public theo danh sách; role header là mô phỏng | Chưa có đăng nhập, RBAC hay audit người thật; không public hosting |
 
+## Rủi ro của các hướng AI từ P1–P3
+
+Các hướng dưới đây là solution signals, chưa thuộc phạm vi prototype điều phối hiện tại. Nếu nghiên cứu tiếp, cần problem evidence và human oversight trước khi xây dựng.
+
+| Hướng | Rủi ro cần kiểm chứng | Điều kiện tối thiểu trước pilot |
+| --- | --- | --- |
+| AI hỗ trợ đo siêu âm (P1) | Cảnh báo sai hoặc bỏ sót bị hiểu là chẩn đoán; dữ liệu ảnh nhạy cảm; bias theo máy/nhóm người | Bác sĩ chuyên môn duyệt tiêu chí; bộ test đa dạng; hiển thị giới hạn; không tự đưa kết luận bệnh |
+| AI hỗ trợ hội chẩn (P2) | Đề xuất sai chuyên gia hoặc bỏ sót người cần tham gia; lộ dữ liệu bệnh án; trách nhiệm không rõ | Tiêu chí minh bạch; quyền override; audit log; phân quyền dữ liệu; hội đồng chịu quyết định cuối |
+| Expert AI tham vấn từ xa (P3) | Memory sai/nguy hiểm, prompt injection, tư vấn vượt phạm vi và trì hoãn gặp bác sĩ | Scope hẹp; test attack/recovery; retention policy; escalation rõ; bác sĩ giám sát; no-go khi thiếu fallback |
+
 ## Quy tắc phỏng vấn và thử nghiệm theo đề
 
 Xin đồng ý trước mỗi phiên; cho phép dừng/bỏ qua. Chỉ hỏi trải nghiệm dịch vụ. Không hỏi tên, chẩn đoán, bệnh án hoặc tình trạng sức khỏe; không chụp người/giấy tờ y tế. Không ghi âm nếu chưa được đồng ý riêng. Chỉ dùng mã P…/T… và trích dẫn được phép. Không đưa lời khuyên y khoa. Công khai phần AI tạo.

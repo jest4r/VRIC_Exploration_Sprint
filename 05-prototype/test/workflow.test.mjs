@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
-import { createVisit, completeService, confirmPatient, configureTask, publishResult, sampleResult, route, sources, startDraft, finishDraft, reviewDraft, viewVisit, validateSections } from '../lib/domain.mjs';
+import { createVisit, completeService, confirmPatient, configureTask, publishResult, sampleResult, route, routeReason, sources, startDraft, finishDraft, reviewDraft, viewVisit, validateSections } from '../lib/domain.mjs';
 import { generateSections } from '../lib/ai.mjs';
 import { createApp } from '../server.mjs';
 
@@ -41,8 +41,19 @@ test('blocked rooms, priorities and changed directions are respected', () => {
  assert.equal(route(v), 'blood'); assert.deepEqual(v.tasks[0].directions, ['Tới quầy', 'Rẽ phải']);
  assert.throws(() => configure(v, 'blood', { waitMinutes: -1 }));
  // Independent services use configured priority, rather than an LLM decision.
- v.tasks[1].dependencies = []; configure(v, 'imaging', { priority: 1, waitMinutes: 1 });
+ v.tasks[1].dependencies = []; configure(v, 'imaging', { priority: 1, waitMinutes: 1, waitingCount: 0 });
  assert.equal(route(v), 'imaging');
+});
+test('queue load recommends the room with the shorter estimated time and explains why', () => {
+ const v = createVisit(); v.tasks[1].dependencies = [];
+ configure(v, 'blood', { waitMinutes: 2, waitingCount: 4, averageServiceMinutes: 10 });
+ configure(v, 'imaging', { waitMinutes: 8, waitingCount: 0, averageServiceMinutes: 20 });
+ assert.equal(route(v), 'imaging');
+ assert.match(routeReason(v, v.tasks[1]), /8 phút.*blood|Lấy mẫu xét nghiệm/);
+ const patient = viewVisit(v);
+ assert.equal(patient.tasks[0].waitingCount, 4);
+ assert.equal(patient.tasks[1].averageServiceMinutes, 20);
+ assert.equal(patient.nextTaskReason, routeReason(v, v.tasks[1]));
 });
 test('out-of-order result publication and idempotent actions; consultation waits for both results', () => {
  const v = performed(); const rev = v.revision; completeService(v, 'imaging'); assert.equal(v.revision, rev);

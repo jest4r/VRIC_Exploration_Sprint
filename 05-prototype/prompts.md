@@ -1,6 +1,6 @@
 # Prompt và khai báo AI
 
-Ngày 17/10/2026. Codex hỗ trợ nghiên cứu bàn, viết tài liệu, giao diện, mã và test. Người thực hiện chưa xác nhận bằng phỏng vấn; mã cũng chưa được đánh giá chuyên môn y khoa.
+Ngày 20/10/2026. Codex hỗ trợ nghiên cứu bàn, viết tài liệu, giao diện, mã và test. P1–P3 có tóm tắt do người thực hiện cung cấp, nhưng chưa đủ problem evidence/trích dẫn nguyên văn để xác thực need; mã cũng chưa được đánh giá chuyên môn y khoa.
 
 ## PROMPT-01 — yêu cầu triển khai của người thực hiện
 
@@ -8,7 +8,7 @@ Tóm tắt yêu cầu thực tế: tham khảo quy trình Vinmec; hoàn thiện 
 
 Ràng buộc đã chốt: ngoại trú nhiều chỉ định, đi tiếp khi được phép, hai giao diện. Kế hoạch được người thực hiện yêu cầu triển khai trong chat. Đây là tóm tắt yêu cầu, không tuyên bố là bản chép nguyên văn đầy đủ.
 
-Đầu ra: tài liệu ở 02–07, README, dàn ý slide và mã nguồn prototype. Kiểm tra: nguồn chính thức có ghi giới hạn; test luồng/API và kiểm tra giao diện. Các P1–P3/T1–T3 chưa thực hiện.
+Đầu ra: tài liệu ở 02–07, README, dàn ý slide và mã nguồn prototype. Kiểm tra: nguồn chính thức có ghi giới hạn; test luồng/API và kiểm tra giao diện. P1–P3 mới có tóm tắt solution signal; T1–T3 chưa có test người dùng hoàn chỉnh.
 
 ## PROMPT-02 — prompt AI chạy trong sản phẩm
 

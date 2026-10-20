@@ -1,6 +1,6 @@
 # Bộ câu hỏi phỏng vấn
 
-> Bản nháp AI; khoảng 20–30 phút. Chỉ hỏi trải nghiệm dịch vụ.
+> Bản nháp AI; khoảng 20–30 phút. Đây là problem interview, không phải buổi xin đánh giá ý tưởng hoặc pitch giải pháp.
 
 ## Mở đầu
 
@@ -10,18 +10,26 @@ Ghi đồng ý trước khi bắt đầu. Mặc định không ghi âm; nếu c�
 
 ## Câu hỏi
 
-1. Bạn kể lại một lần gần đây chờ nhận kết quả, chỉ về quy trình dịch vụ, được không?
-2. Sau khi hoàn thành bước lấy mẫu/chụp, nhân viên hướng dẫn bạn làm gì?
-3. Bạn biết thời điểm hoặc nơi nhận kết quả bằng cách nào?
-4. Trong lúc chờ, bạn làm gì? Lúc nào không biết bước tiếp theo?
-5. Lúc khó nhất là lúc nào? Bạn xử lý ra sao?
-6. Bạn phải hỏi lại hoặc di chuyển giữa các nơi thế nào?
-7. Khi kết quả sẵn sàng, bạn biết bằng cách nào và tiếp tục bước nào?
-8. Cảm xúc ở từng bước ra sao? Điều gì làm cảm xúc thay đổi?
-9. Thông tin nào bạn muốn có lúc đó để chủ động hơn?
-10. Nếu quy trình tốt hơn, bạn sẽ nhận ra nhờ thay đổi nào?
+1. Bạn kể lại lần gần nhất bạn phải đi qua nhiều bước khám hoặc chờ kết quả, từ đầu đến cuối được không?
+2. Lúc đó chuyện gì xảy ra trước, trong và sau khi bạn tới phòng thực hiện?
+3. Bạn đã biết phòng, thứ tự và điều kiện đi tiếp bằng cách nào?
+4. Có khoảnh khắc nào bạn không biết phải làm gì tiếp không? Bạn đã làm gì ngay sau đó?
+5. Bạn có hỏi ai, gọi ai, quay lại đâu hoặc tự tìm cách nào khác không?
+6. Cách xử lý đó tốn bao nhiêu thời gian/công sức hoặc gây hậu quả gì?
+7. Khi kết quả sẵn sàng hoặc chưa sẵn sàng, bạn nhận biết bằng dấu hiệu nào?
+8. Có lần nào quy trình diễn ra thuận lợi không? Điều gì làm lần đó khác?
+9. Trong 7 ngày gần đây, tình huống tương tự có lặp lại không? Bao nhiêu lần gần đúng nhất bạn nhớ được?
+10. Nhìn lại lần gần nhất, phần nào khó chịu hoặc rủi ro nhất? Vì sao?
 
-Gợi mở bằng “Bạn kể cụ thể lần đó được không?”. Không dẫn dắt bằng giải pháp AI. Nếu có thông tin sức khỏe, chuyển lại quy trình và không ghi chi tiết đó.
+Gợi mở bằng “Bạn kể cụ thể lần đó được không?”, “Sau đó chuyện gì xảy ra?” và “Bạn đã làm gì?”. Không hỏi “Bạn có muốn AI…?”, “Ý tưởng này có hay không?” hoặc “Bạn có dùng tính năng này không?”. Nếu có thông tin sức khỏe, chuyển lại quy trình và không ghi chi tiết đó.
+
+## Quy tắc ghi bằng chứng
+
+- Ghi **fact** trước: sự kiện, hành động đã làm, workaround, tần suất và hậu quả.
+- Đánh dấu riêng **diễn giải** của người nghiên cứu, **opinion** và **prediction/feature request** của người tham gia.
+- Một câu “nên có AI…” là tín hiệu về solution, không tự chứng minh problem, mức độ đau hoặc willingness to use.
+- Hỏi thêm lần xảy ra gần nhất trước khi ghi nhận pain; tìm cả trường hợp không gặp vấn đề để có bằng chứng trái chiều.
+- Không nâng thành insight đã xác thực nếu chưa có sự kiện cụ thể, hành vi hoặc hậu quả được ghi lại.
 
 ## Kết thúc
 
@@ -38,4 +46,4 @@ Chỉ hỏi sau phần kể chuyện mở; không nêu giải pháp trước khi
 - Bạn biết khi nào quay lại bác sĩ, ở đâu, qua kênh nào?
 - Có điểm nào trong đoạn này đã thuận lợi, không gặp vấn đề? Vì sao?
 
-Không hỏi chỉ số, bệnh hay kết quả sức khỏe thật. H01–H04 là giả thuyết, không phải điều cần người tham gia đồng ý.
+Không hỏi chỉ số, bệnh hay kết quả sức khỏe thật. H01–H04 là giả thuyết, không phải điều cần người tham gia đồng ý. P1–P3 có thể dùng để tạo câu hỏi tiếp theo, nhưng cần phân loại các đề xuất AI là solution signal cho đến khi có problem evidence độc lập.

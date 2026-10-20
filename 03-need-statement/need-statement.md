@@ -1,6 +1,6 @@
 # Need statement — dự thảo cần kiểm chứng
 
-> AI hỗ trợ diễn đạt từ phạm vi người thực hiện đã chọn và nghiên cứu bàn. Chưa có phỏng vấn hoặc số liệu nền; đây chưa phải nhu cầu được xác thực.
+> AI hỗ trợ diễn đạt từ phạm vi người thực hiện đã chọn và nghiên cứu bàn. P1–P3 đã có tóm tắt phỏng vấn, nhưng chủ yếu là solution signals; chưa có problem evidence đủ để xác thực need statement này.
 
 **Cách để người bệnh ngoại trú có nhiều chỉ định cận lâm sàng chủ động hoàn thành các bước khám, giảm việc chờ không rõ tiến độ và đi lại nhầm khi chưa biết trạng thái kết quả hoặc nơi cần đến tiếp theo.**
 
@@ -14,7 +14,7 @@
 
 [V01–V03](../04-best-practice/sources.md) → đã có thủ tục khám và kênh hồ sơ/kết quả số → **suy luận thiết kế:** cần kiểm chứng thông tin có đủ giúp người bệnh hành động giữa các phòng không → H01–H04 trong [journey map](../02-journey-map/journey-map.md) → need statement dự thảo.
 
-V04 cho thấy quản lý kỳ vọng chờ có liên quan đến trải nghiệm, nhưng không chứng minh pain point xét nghiệm. Nguồn web không tạo thành trích dẫn phỏng vấn. Khi có P1–P3, thêm mã bằng chứng vào từng giả thuyết, ghi ý kiến trái chiều và điều chỉnh nhóm/phạm vi nếu cần.
+V04 cho thấy quản lý kỳ vọng chờ có liên quan đến trải nghiệm, nhưng không chứng minh pain point xét nghiệm. P1–P3 gợi ý các hướng AI khác nhau, không ghi đủ event–behavior–workaround–consequence để xác thực H01–H04. Cần problem interview tiếp theo trước khi điều chỉnh nhóm/phạm vi; không dùng đề xuất AI làm bằng chứng nhu cầu.
 
 ## Đo kiểm chứng
 
@@ -33,4 +33,4 @@ Nếu chỉ có 2 người thử, báo phân số thực tế; không diễn gi�
 - AI tự đọc/diễn giải kết quả thay bác sĩ: không chọn; phạm vi là hỗ trợ soạn và có bước duyệt.
 - Tăng tốc máy xét nghiệm: không nằm trong khả năng kiểm chứng của bài tập.
 
-Need statement không chứa công nghệ hoặc giải pháp bắt buộc. Chức năng AI và chỉ đường là phương án kiểm chứng nhu cầu, có thể thay đổi sau nghiên cứu.
+Need statement không chứa công nghệ hoặc giải pháp bắt buộc. Chức năng AI và chỉ đường là phương án kiểm chứng nhu cầu, có thể thay đổi sau nghiên cứu. Các hướng AI từ P1–P3 được giữ ở solution backlog, chưa đưa vào need statement này.

@@ -1,6 +1,6 @@
 # Thử prototype với 2–3 người
 
-**Chưa thực hiện test người dùng.** Đây là kịch bản và bảng ghi chép do AI hỗ trợ; kiểm tra kỹ thuật ghi riêng tại [technical-validation.md](technical-validation.md). T1–T3 là mã ẩn danh, có thể ghi mã P… nếu cùng người phỏng vấn.
+Đã có hai review sử dụng sản phẩm được ghi dưới đây. Các trường ngày, thiết bị và phiên bản chưa được cung cấp nên không suy đoán. Đây là bằng chứng định tính; kiểm tra kỹ thuật ghi riêng tại [technical-validation.md](technical-validation.md). T1–T3 vẫn là mã cho các phiên test tiếp theo.
 
 ## Trước mỗi phiên — khoảng 15–20 phút
 
@@ -30,13 +30,45 @@ Khi sửa phiếu nguồn sau duyệt, hỏi người thử phần giải thích
 
 | Người | Ngày/đồng ý/thiết bị/phiên bản | U1–U6: kết quả và thời gian | Chọn sai/hỗ trợ | Trích dẫn thật | Vấn đề | Thay đổi CHANGE-… | Thử lại |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| T1 | Chưa thực hiện | — | — | — | — | — | — |
-| T2 | Chưa thực hiện | — | — | — | — | — | — |
+| T1 | Mai Tiến Huy · chưa ghi | Chưa đo theo U1–U6 | Chưa ghi | “Đi chụp X-quang lâu thì phải đi lấy số ở đó trước.” | Cần điều phối theo số người đợi và thời gian xử lý dự kiến của từng phòng | CHANGE-01 | Chưa thử lại |
+| T2 | Phạm Khánh Linh · chưa ghi | Chưa đo theo U1–U6 | Chưa ghi | “Giải thích AI gần như vô nghĩa.” | Giải thích kết quả, mã kỹ thuật, phiên bản, màn hình hướng dẫn, bối cảnh chỉ số và thao tác nhân viên chưa đủ rõ | CHANGE-02 | Chưa thử lại |
 | T3 (tùy chọn) | Chưa thực hiện | — | — | — | — | — | — |
+
+## Review 1 — Mai Tiến Huy
+
+**Góc nhìn:** người dùng đánh giá luồng điều phối và thứ tự đi phòng. **Ngày/thiết bị:** chưa ghi.
+
+**Quan sát và nhu cầu:**
+
+- Thứ tự hiện tại có vẻ gấp nhưng chưa cho thấy phòng nào đang đông, có bao nhiêu người đợi hoặc thời gian xử lý trung bình.
+- Cần tính đến cả thời gian chờ do đông và thời gian thực hiện dịch vụ. Ví dụ, X-quang có thể làm lâu nên nên lấy số trước; xét nghiệm máu làm nhanh nhưng đông; kiểm tra cơ khớp bằng điện làm lâu nhưng vắng.
+- Người dùng muốn được gợi ý “đi lấy số ở phòng nào trước”, thay vì chỉ nhận danh sách phòng theo ưu tiên tĩnh.
+
+**Trích dẫn:** “T thấy dl có vẻ gấp, nếu có thời gian thì làm cái kiểu đếm xem phòng đó có bao nhiêu người đợi, thời gian trung bình ở phòng đó lâu không, đi lấy số ở phòng nào trước.”
+
+**Hàm ý kiểm tra lại:** cần dữ liệu giả lập cho số người đợi, thời gian xử lý trung bình và độ tin cậy của ước tính; kiểm tra người dùng có hiểu đây là gợi ý mô phỏng, không phải lịch khám thật.
+
+## Review 2 — Phạm Khánh Linh
+
+**Góc nhìn:** người bệnh dùng phiếu kết quả và phần giải thích. **Ngày/thiết bị:** chưa ghi.
+
+**Phát hiện:**
+
+- Với Glucose `6.2 mmol/L` có cờ `H`, “Giải thích dễ hiểu” gần như không giúp ích, chỉ nói xem giá trị gốc và trao đổi với bác sĩ. Câu “chưa đủ để kết luận tình trạng bệnh” nghe như từ chối; “Nhận định hỗ trợ… mức thấp” khó hiểu; hai phiếu dùng câu mẫu chung chung.
+- Đây là điểm yếu nhất vì phần AI duy nhất hiện giống chuỗi viết sẵn, chưa chứng minh AI giúp người đọc hiểu gì.
+- Mã kỹ thuật lộ ra cho người bệnh: `blood-result · v1`, `imaging-result`, `Nguồn: blood-result`.
+- Số phiên bản không khớp: phiếu ghi “Phiên bản 1” nhưng giải thích đã duyệt ghi “phiên bản nguồn 2”.
+- “Cách dùng màn hình này” chiếm gần hết vùng nhìn đầu trên điện thoại, che điểm đến tiếp theo và không tắt được.
+- Phiếu thiếu bối cảnh vì ghi “Không thiết lập khoảng tham chiếu trong demo”; phiếu siêu âm hiện NT, tim thai, CRL nhưng phần giải thích không nói gì về các chỉ số này.
+- Nút “Đặt lại demo” nhỏ, nằm ở chân trang và dễ bấm nhầm trên điện thoại.
+- Bên nhân viên, “Soạn bản nháp mẫu” và “Soạn bằng AI thật” xuất hiện hai lần; “Xác nhận hoàn tất” vẫn bấm được sau khi đã xác nhận; nhiều khối lặp khiến nhân viên bối rối.
+
+**Hàm ý kiểm tra lại:** dùng lại ít nhất một phiếu xét nghiệm có cờ và một phiếu siêu âm; hỏi người bệnh giải thích lại ý nghĩa hiển thị, điểm đến tiếp theo và phiên bản nguồn; hỏi nhân viên tìm đúng hành động một lần và nhận biết trạng thái đã hoàn tất.
 
 ## Tổng hợp sau thử
 
-- Giả thuyết H01–H04 được/chưa được hỗ trợ, bằng chứng trái chiều: [TODO sau test].
+- Review Mai Tiến Huy chưa ủng hộ giả thuyết người bệnh có thể chọn thứ tự phòng chỉ từ danh sách hiện tại; cần bổ sung dữ liệu hàng đợi và thời gian xử lý.
+- Review Phạm Khánh Linh chưa ủng hộ giả thuyết người bệnh hiểu phần giải thích, mã nguồn/phiên bản và luồng màn hình hiện tại.
 - Mức hiểu phân biệt dịch vụ/kết quả/duyệt: [TODO].
-- Vấn đề ưu tiên sửa, lý do, kết quả thử lại: [TODO].
+- Vấn đề ưu tiên sửa: giải thích có ngữ cảnh và ngôn ngữ người bệnh; điều phối theo hàng đợi; sau đó là bố cục điện thoại và dọn màn hình nhân viên. Kết quả thử lại: [TODO].
 - Những gì bài thử không đo: thời gian xử lý xét nghiệm thật, thời gian bác sĩ thật, độ chính xác y khoa hoặc hiệu quả điều trị.

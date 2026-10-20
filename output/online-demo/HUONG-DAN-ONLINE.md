@@ -26,7 +26,7 @@ Màn hình bác sĩ hiện ưu tiên **Tổng hợp sơ bộ → Chỉ số cầ
 
 1. **Ghép đúng phiên:** người bệnh mở link T1; người điều phối mở link nhân viên T1. Tương tự T2/T3, mỗi người độc lập. Nếu đã chạy thử trước đó, đặt lại ở màn hình nhân viên và xác nhận đặt lại.
 2. **Giao bối cảnh:** “Bạn đã khám ban đầu và được chỉ định lấy mẫu xét nghiệm, chẩn đoán hình ảnh rồi quay lại bác sĩ. Hãy sử dụng màn hình này để tìm bước tiếp theo. Đây là dữ liệu giả lập.” Không hướng dẫn vị trí nút trước khi họ thử.
-3. **Lấy mẫu:** chuyển sang tab Hành trình.  yêu cầu người thử tìm phòng tiếp theo, đọc vị trí/tầng/điều kiện và bấm “Đã thực hiện tại phòng” sau khi giả định đã lấy mẫu. Quan sát họ có hiểu đây chỉ là xác nhận của người bệnh. Nhân viên bấm xác nhận hoàn tất dịch vụ lấy mẫu.
+3. **Lấy mẫu:** chuyển sang tab Hành trình. Yêu cầu người thử đọc phòng tiếp theo, số người đang đợi, thời gian làm trung bình và ước tính tới lượt; hỏi họ có đồng ý với gợi ý đi phòng này trước không. Sau đó bấm “Đã thực hiện tại phòng” khi giả định đã lấy mẫu. Nhân viên bấm xác nhận hoàn tất dịch vụ lấy mẫu.
 4. **Đi tiếp khi kết quả còn chờ:** chưa phát hành kết quả máu. Hỏi người thử sẽ làm gì tiếp theo. Họ cần nhận ra có thể đi chẩn đoán hình ảnh khi dịch vụ trước đã hoàn tất và điều kiện đã đáp ứng. Kết quả máu vẫn ở trạng thái chờ.
 5. **Chẩn đoán hình ảnh:** người thử đọc chỉ dẫn phòng tiếp theo và xác nhận đã thực hiện; nhân viên xác nhận dịch vụ hoàn tất. Có thể mô phỏng phòng chưa sẵn sàng hoặc đổi phòng trong bảng cấu hình, rồi quan sát thông tin cập nhật.
 6. **Kết quả về khác thứ tự:** nhân viên phát hành kết quả hình ảnh trước, sau đó kết quả máu. Người bệnh mở Kết quả: thấy phiếu nguồn và trạng thái giải thích đang chờ duyệt; chưa thấy bản nháp giải thích.
@@ -40,6 +40,7 @@ Màn hình bác sĩ hiện ưu tiên **Tổng hợp sơ bộ → Chỉ số cầ
 | Tác vụ giao người thử | Ghi nhận |
 |---|---|
 | Tìm phòng tiếp theo | Hoàn thành/không; số giây từ lúc giao tác vụ đến khi nêu đúng phòng; số lần chọn sai |
+| Hiểu gợi ý hàng đợi | Nêu đúng số người đợi, thời gian làm trung bình, ước tính tới lượt và lý do chọn phòng; không coi số liệu mô phỏng là lịch thật |
 | Đi tiếp khi kết quả máu còn chờ | Có tự làm được; có nhầm “hoàn tất dịch vụ” với “có kết quả” |
 | Xác định giải thích đã được duyệt chưa | Nêu đúng trạng thái và ai duyệt; không đo hiểu biết y khoa |
 | Tìm hỗ trợ, tải lại trang | Tìm được; hiểu phạm vi mô phỏng; tiến độ còn được giữ |

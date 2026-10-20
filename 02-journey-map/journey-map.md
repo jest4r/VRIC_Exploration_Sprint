@@ -1,6 +1,6 @@
 # Journey map — một lượt khám, nhiều chỉ định
 
-**Trạng thái:** nghiên cứu bàn và giả thuyết ngày 17/10/2026, chưa xác thực qua P1–P3. Codex hỗ trợ tổng hợp. Đối tượng dự kiến: người trưởng thành khám ngoại trú, tự di chuyển giữa nhiều phòng, có lấy mẫu xét nghiệm và chẩn đoán hình ảnh theo chỉ định. Không mô hình hóa cấp cứu, nội trú hoặc thủ thuật có quy trình riêng.
+**Trạng thái:** nghiên cứu bàn và giả thuyết ngày 17/10/2026, chưa xác thực qua P1–P3. P1–P3 chủ yếu cung cấp solution signals về siêu âm, hội chẩn và tham vấn từ xa; không dùng chúng làm bằng chứng cho pain H01–H04. Codex hỗ trợ tổng hợp. Đối tượng dự kiến: người trưởng thành khám ngoại trú, tự di chuyển giữa nhiều phòng, có lấy mẫu xét nghiệm và chẩn đoán hình ảnh theo chỉ định. Không mô hình hóa cấp cứu, nội trú hoặc thủ thuật có quy trình riêng.
 
 Nguồn và giới hạn: [sổ nguồn V01–V04](../04-best-practice/sources.md). Các điểm đau/cảm xúc dưới đây là **giả thuyết**, không phải lời người bệnh hay kết quả khảo sát. Không dùng tên phòng hoặc thời gian demo như thông tin Vinmec thực tế.
 
@@ -48,6 +48,10 @@ flowchart LR
 | PAIN-04 / H04 | Chuyển điểm tiếp theo / quay lại bác sĩ | Đi sai phòng hoặc bỏ sót bước | Không chắc chắn | Lộ trình cập nhật theo điều kiện | Test phòng đổi, phòng bận và bước bị chặn |
 
 Không gán điểm cảm xúc số khi chưa hỏi người thật. Sau phỏng vấn, bổ sung lời nói nguyên văn, mã nguồn và bằng chứng trái chiều; điều chỉnh hoặc loại H01–H04 nếu không được hỗ trợ.
+
+## 2b. Phân biệt problem discovery và solution discovery
+
+P1–P3 mở ra ba hướng giải pháp có thể nghiên cứu tiếp: kiểm tra phép đo siêu âm, hỗ trợ hội chẩn và expert AI tham vấn từ xa. Các hướng này chưa thay đổi journey map người bệnh ngoại trú vì chưa có câu chuyện quá khứ về một pain cụ thể trong hành trình trên. Cần một vòng problem interview riêng để hỏi sự kiện, hành vi, workaround, tần suất và hậu quả trước khi đổi pain point hoặc need statement.
 
 ## 3. Workflow giải pháp để kiểm chứng
 

@@ -12,13 +12,13 @@ export function createVisit() {
     tasks: [
       { id: 'blood', name: 'Lấy mẫu xét nghiệm', kind: 'lab', priority: 1, room: 'L01', floor: 'Tầng 1',
         directions: ['Từ sảnh minh họa, đi thẳng tới khu A.', 'Rẽ trái tại quầy hướng dẫn, tìm phòng L01.', 'Báo đã đến với nhân viên; làm theo hướng dẫn tại phòng.'],
-        available: true, waitMinutes: 8, dependencies: [], requiresResults: [], service: 'pending', patientConfirmed: false, result: null },
+        available: true, waitMinutes: 8, waitingCount: 4, averageServiceMinutes: 5, dependencies: [], requiresResults: [], service: 'pending', patientConfirmed: false, result: null },
       { id: 'imaging', name: 'Chẩn đoán hình ảnh', kind: 'imaging', priority: 2, room: 'C02', floor: 'Tầng 2',
         directions: ['Từ khu lấy mẫu, tới thang máy B.', 'Lên tầng 2, rẽ phải theo biển khu C.', 'Đến phòng C02, báo nhân viên để được xác nhận.'],
-        available: true, waitMinutes: 12, dependencies: ['blood'], requiresResults: [], service: 'pending', patientConfirmed: false, result: null },
+        available: true, waitMinutes: 12, waitingCount: 2, averageServiceMinutes: 20, dependencies: ['blood'], requiresResults: [], service: 'pending', patientConfirmed: false, result: null },
       { id: 'consult', name: 'Quay lại bác sĩ', kind: 'consult', priority: 3, room: 'K03', floor: 'Tầng 1',
         directions: ['Đi thang máy B về tầng 1.', 'Theo biển khu khám K, tìm phòng K03.', 'Báo nhân viên bạn đã hoàn tất các dịch vụ.'],
-        available: true, waitMinutes: 5, dependencies: ['blood', 'imaging'], requiresResults: ['blood', 'imaging'], service: 'pending', patientConfirmed: false, result: null }
+        available: true, waitMinutes: 5, waitingCount: 1, averageServiceMinutes: 10, dependencies: ['blood', 'imaging'], requiresResults: ['blood', 'imaging'], service: 'pending', patientConfirmed: false, result: null }
     ]
   };
 }
@@ -48,9 +48,19 @@ export function blockers(visit, task) {
   if (!task.available) reasons.push('Phòng tạm chưa sẵn sàng; liên hệ nhân viên nếu cần hỗ trợ.');
   return reasons;
 }
+export function queueEstimate(task) {
+  return task.waitMinutes + task.waitingCount * task.averageServiceMinutes;
+}
 export function route(visit) {
   return visit.tasks.filter(t => t.service !== 'performed' && !blockers(visit, t).length)
-    .sort((a, b) => a.priority - b.priority || a.waitMinutes - b.waitMinutes)[0]?.id ?? null;
+    .sort((a, b) => queueEstimate(a) - queueEstimate(b) || a.priority - b.priority)[0]?.id ?? null;
+}
+export function routeReason(visit, task) {
+  if (!task) return '';
+  const alternatives = visit.tasks.filter(t => t.id !== task.id && t.service !== 'performed' && !blockers(visit, t).length);
+  if (!alternatives.length) return `Ước tính còn ${queueEstimate(task)} phút tại hàng đợi này.`;
+  const next = alternatives.sort((a, b) => queueEstimate(a) - queueEstimate(b))[0];
+  return `Ước tính ${queueEstimate(task)} phút, thấp hơn ${next.name} (${queueEstimate(next)} phút).`;
 }
 export function sources(visit) { return visit.tasks.filter(t => t.result).map(t => ({ taskId: t.id, taskName: t.name, ...copy(t.result) })); }
 export function record(visit, type, detail) {
@@ -80,8 +90,10 @@ export function configureTask(visit, id, data) {
   check(typeof data.floor === 'string' && data.floor.trim().length > 0 && data.floor.length <= 60, 'Tầng không hợp lệ.');
   check(typeof data.directions === 'string' && data.directions.trim().length > 0 && data.directions.length <= 1500, 'Cần hướng dẫn đường đi.');
   check(typeof data.available === 'boolean' && Number.isInteger(data.waitMinutes) && data.waitMinutes >= 0 && data.waitMinutes <= 240, 'Thời gian chờ cần nằm trong 0–240 phút.');
+  check(Number.isInteger(data.waitingCount) && data.waitingCount >= 0 && data.waitingCount <= 999, 'Số người đợi cần nằm trong 0–999.');
+  check(Number.isInteger(data.averageServiceMinutes) && data.averageServiceMinutes >= 1 && data.averageServiceMinutes <= 240, 'Thời gian làm trung bình cần nằm trong 1–240 phút.');
   check(Number.isInteger(data.priority) && data.priority >= 1 && data.priority <= 99, 'Ưu tiên phải từ 1 đến 99.');
-  Object.assign(task, { room: data.room.trim(), floor: data.floor.trim(), directions: data.directions.split('\n').map(s => s.trim()).filter(Boolean), available: data.available, waitMinutes: data.waitMinutes, priority: data.priority });
+  Object.assign(task, { room: data.room.trim(), floor: data.floor.trim(), directions: data.directions.split('\n').map(s => s.trim()).filter(Boolean), available: data.available, waitMinutes: data.waitMinutes, waitingCount: data.waitingCount, averageServiceMinutes: data.averageServiceMinutes, priority: data.priority });
   record(visit, 'routing', `Cập nhật phòng, hướng dẫn hoặc hàng đợi: ${task.name}`);
 }
 export function validateResult(result) {
@@ -142,7 +154,8 @@ export function reviewDraft(visit, data) {
   record(visit, 'approve', 'Bác sĩ mô phỏng duyệt và phát hành giải thích.');
 }
 export function viewVisit(visit, role = 'patient') {
-  const out = copy(visit); out.nextTaskId = route(visit); out.completed = visit.tasks.every(t => t.service === 'performed');
+  const out = copy(visit); out.tasks.forEach(task => { task.waitingCount ??= 0; task.averageServiceMinutes ??= 10; });
+  out.nextTaskId = route(out); out.nextTaskReason = routeReason(out, out.tasks.find(t => t.id === out.nextTaskId)); out.completed = out.tasks.every(t => t.service === 'performed');
   out.tasks.forEach(t => { t.blockers = blockers(visit, t); });
   if (role !== 'staff') {
     out.summary = visit.summary?.status === 'approved' && visit.summary.sourceVersion === visit.sourceVersion ? copy(visit.summary) : null;
