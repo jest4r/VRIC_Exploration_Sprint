@@ -18,7 +18,7 @@ AI hỗ trợ phân tích ngày 17/10/2026. Mức độ dưới đây là đánh
 
 ## Rủi ro của các hướng AI từ P1–P3
 
-Các hướng dưới đây là solution signals, chưa thuộc phạm vi prototype điều phối hiện tại. Nếu nghiên cứu tiếp, cần problem evidence và human oversight trước khi xây dựng.
+Các hướng dưới đây là solution signals, chưa thuộc phạm vi prototype điều phối hiện tại. Nếu nghiên cứu tiếp, cần problem evidence và human oversight trước khi xây dựng. Luồng hội chẩn sau kết quả được phác thảo trong [product brief](../05-prototype/consultation-plan.md).
 
 | Hướng | Rủi ro cần kiểm chứng | Điều kiện tối thiểu trước pilot |
 | --- | --- | --- |

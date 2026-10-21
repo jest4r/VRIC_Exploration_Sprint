@@ -69,6 +69,6 @@ Khi sửa phiếu nguồn sau duyệt, hỏi người thử phần giải thích
 
 - Review Mai Tiến Huy chưa ủng hộ giả thuyết người bệnh có thể chọn thứ tự phòng chỉ từ danh sách hiện tại; cần bổ sung dữ liệu hàng đợi và thời gian xử lý.
 - Review Phạm Khánh Linh chưa ủng hộ giả thuyết người bệnh hiểu phần giải thích, mã nguồn/phiên bản và luồng màn hình hiện tại.
-- Mức hiểu phân biệt dịch vụ/kết quả/duyệt: [TODO].
-- Vấn đề ưu tiên sửa: giải thích có ngữ cảnh và ngôn ngữ người bệnh; điều phối theo hàng đợi; sau đó là bố cục điện thoại và dọn màn hình nhân viên. Kết quả thử lại: [TODO].
+- Mức hiểu phân biệt dịch vụ/kết quả/duyệt: chưa đo bằng tác vụ U1–U6; hai review hiện có chỉ ghi nhận vấn đề định tính.
+- Vấn đề ưu tiên sửa: giải thích có ngữ cảnh và ngôn ngữ người bệnh; điều phối theo hàng đợi; sau đó là bố cục điện thoại và dọn màn hình nhân viên. CHANGE-01 đã triển khai phần hàng đợi; CHANGE-02 còn backlog. Kết quả thử lại: chưa có.
 - Những gì bài thử không đo: thời gian xử lý xét nghiệm thật, thời gian bác sĩ thật, độ chính xác y khoa hoặc hiệu quả điều trị.

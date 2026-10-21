@@ -90,7 +90,7 @@ Mọi POST cập nhật phiên cần `expectedRevision`; sai phiên bản trả 
 npm test
 ```
 
-Xem [kiểm tra kỹ thuật](technical-validation.md), [kịch bản test người thật](test-log.md), [kế hoạch experiment](experiment-plan.md) và [thay đổi](changelog.md). Kiểm tra tự động không thay 2–3 phiên thử với người thật.
+Xem [kiểm tra kỹ thuật](technical-validation.md), [kịch bản test người thật](test-log.md), [kế hoạch experiment](experiment-plan.md), [product brief hỗ trợ hội chẩn](consultation-plan.md) và [thay đổi](changelog.md). Kiểm tra tự động không thay 2–3 phiên thử với người thật.
 
 ## Checklist review sử dụng sản phẩm — 20/10/2026
 
@@ -104,3 +104,7 @@ Hai review đầu vào đã phát hiện các vấn đề cần xử lý trướ
 - [ ] **Màn hình nhân viên:** bỏ khối lặp và chỉ hiển thị mỗi hành động soạn một lần; khóa “Xác nhận hoàn tất” sau khi đã xác nhận và làm rõ trạng thái đã hoàn tất.
 
 Đây là các phát hiện trải nghiệm, chưa phải bằng chứng về thời gian xét nghiệm, độ chính xác y khoa hoặc hiệu quả điều trị. Chi tiết và trích dẫn nằm trong [nhật ký review](test-log.md); sau khi sửa cần thử lại riêng các mục trên với người bệnh và nhân viên.
+
+## Roadmap sau khi có kết quả
+
+Ý tưởng hỗ trợ hội chẩn sau khi phiếu kết quả được bác sĩ đối chiếu được ghi trong [product brief](consultation-plan.md). Đây là hướng phát triển riêng, chưa thuộc prototype hiện tại: AI chỉ nên tổng hợp có nguồn, đề xuất chuyên khoa để bác sĩ sửa/duyệt và hỗ trợ ghi nhận ý kiến; không tự chẩn đoán, tự mời hội đồng hoặc gửi quyết định cho người bệnh.

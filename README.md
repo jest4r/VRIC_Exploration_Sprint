@@ -2,7 +2,7 @@
 
 ## Trạng thái hiện tại
 
-Đã có nghiên cứu bàn với nguồn, journey map toàn hành trình và khoảnh khắc đào sâu, need statement dự thảo, 3 best practice, prototype chạy được, kịch bản test, rủi ro và coach plan. **Chưa có phỏng vấn thật, dùng thử app thực tế hoặc thử nghiệm người dùng.** Các giả thuyết chưa được xác thực; repo chưa phải bài nộp hoàn chỉnh.
+Đã có nghiên cứu bàn với nguồn, tóm tắt P1–P3, journey map, need statement dự thảo, 3 best practice, prototype chạy được, review sử dụng sản phẩm, kịch bản test, experiment plan, product brief hội chẩn, rủi ro và coach plan. **P1–P3 hiện chủ yếu là solution signals; chưa có problem evidence/trích dẫn nguyên văn và test usability đầy đủ.** Các giả thuyết chưa được xác thực; repo vẫn cần vòng nghiên cứu tiếp theo.
 
 Khoảnh khắc chọn: **thực hiện chỉ định → chờ/nhận kết quả → biết phòng tiếp theo** trong một lượt khám ngoại trú có nhiều chỉ định. Toàn hành trình có trong journey map để tạo bối cảnh; không mở rộng prototype sang đặt lịch, nội trú hay cấp cứu.
 
@@ -41,15 +41,15 @@ Trang được mở công khai theo xác nhận của người thực hiện ng�
 
 | Thư mục                              | Tài liệu                                                                                                                                                                                                                    | Trạng thái                                                          |
 | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| [01-phong-van](01-phong-van/)           | [Ghi chép app](01-phong-van/myvinmec-notes.md), [guide](01-phong-van/interview-guide.md), [P1](01-phong-van/P1.md), [P2](01-phong-van/P2.md), [P3](01-phong-van/P3.md), [insight](01-phong-van/insights.md)                        | Có mẫu; cần dữ liệu thật                                        |
+| [01-phong-van](01-phong-van/)           | [Ghi chép app](01-phong-van/myvinmec-notes.md), [guide](01-phong-van/interview-guide.md), [P1](01-phong-van/P1.md), [P2](01-phong-van/P2.md), [P3](01-phong-van/P3.md), [insight](01-phong-van/insights.md)                        | Có tóm tắt P1–P3; cần problem evidence và trích dẫn được phép |
 | [02-journey-map](02-journey-map/)       | [Hai mức journey và workflow](02-journey-map/journey-map.md)                                                                                                                                                                 | Nghiên cứu bàn; pain point/cảm xúc giả định                   |
 | [03-need-statement](03-need-statement/) | [Biodesign, lập luận và tiêu chí đo](03-need-statement/need-statement.md)                                                                                                                                                | Dự thảo cần kiểm chứng                                           |
 | [04-best-practice](04-best-practice/)   | [3 mô hình quốc tế](04-best-practice/best-practices.md), [sổ nguồn Vinmec/quốc tế/kỹ thuật](04-best-practice/sources.md)                                                                                              | Có nguồn, ngày và giới hạn bằng chứng                         |
-| [05-prototype](05-prototype/)           | [Mã/cách chạy](05-prototype/README.md), [prompt](05-prototype/prompts.md), [test người dùng](05-prototype/test-log.md), [kiểm tra kỹ thuật](05-prototype/technical-validation.md), [changelog](05-prototype/changelog.md) | Demo chạy được; AI thật và test người dùng chưa thực hiện |
+| [05-prototype](05-prototype/)           | [Mã/cách chạy](05-prototype/README.md), [experiment](05-prototype/experiment-plan.md), [hội chẩn roadmap](05-prototype/consultation-plan.md), [prompt](05-prototype/prompts.md), [test log](05-prototype/test-log.md), [kiểm tra kỹ thuật](05-prototype/technical-validation.md) | Demo chạy được; AI thật và usability test đầy đủ chưa thực hiện |
 | [06-rui-ro-dao-duc](06-rui-ro-dao-duc/) | [Rủi ro](06-rui-ro-dao-duc/risk-register.md), [hỗ trợ/chuyển tuyến](06-rui-ro-dao-duc/emergency-handoff.md)                                                                                                                | Có phân tích và ranh giới mô phỏng                             |
 | [07-coach-plan](07-coach-plan/)         | [Coach plan một trang](07-coach-plan/coach-plan.md)                                                                                                                                                                           | Kế hoạch 18 giờ, chưa triển khai coaching thật                  |
 
-[slides-outline.md](slides-outline.md): dàn ý 10 slide/10 phút. **Chưa xuất `slides.pdf`** vì còn thiếu bằng chứng phỏng vấn/test; đây là phần cần hoàn thiện trước nộp.
+[slides-outline.md](slides-outline.md): dàn ý 10 slide/10 phút. Deck đã xuất tại [slides.pdf](output/slides.pdf); nội dung vẫn ghi rõ các khoảng trống bằng chứng.
 
 ## Cách đọc bằng chứng
 
@@ -68,18 +68,18 @@ Nguồn web cho biết điều tài liệu công bố, không chứng minh ngư�
 ## Checklist theo HW
 
 - [X] Học Track 1 Product ngày 2, 5, 17, 18, 19; điền tên/khóa.
-- [X] Tự dùng MyVinmec và ghi quan sát thực tế.
+- [ ] Tự dùng MyVinmec và ghi quan sát thực tế đầy đủ; `myvinmec-notes.md` còn các trường evidence gap.
 - [ ] Ít nhất 3 phỏng vấn có xác nhận đồng ý, ẩn danh, trích dẫn thật và insight; P1–P3 hiện mới có tóm tắt, chưa đủ hồ sơ đồng ý/trích dẫn nguyên văn.
 - [X] Journey map, need statement dự thảo, giả thuyết và nguồn truy vết.
 - [ ] Xác thực/sửa journey và need bằng problem evidence từ P1–P3 hoặc vòng phỏng vấn tiếp theo; các tóm tắt hiện tại chủ yếu là solution signals.
 - [X] 3 best practice quốc tế có nguồn và bài học cho Vinmec.
 - [X] Prototype click được, nguồn, prompt, hướng dẫn chạy và chế độ AI tùy chọn.
 - [ ] Chạy AI thật và đánh giá bản nháp nếu muốn chứng minh AI hoạt động thực tế; công khai phạm vi demo.
-- [X] Thử 2–3 người, ghi log, sửa và kiểm tra lại.
+- [ ] Thử 2–3 người đầy đủ, ghi thời gian/hành vi và thử lại; hiện mới có review định tính của 2 người và kiểm tra kỹ thuật.
 - [X] Phân tích rủi ro, hỗ trợ và ranh giới chuyển tuyến mô phỏng.
 - [X] Coach plan một trang, lịch 18 giờ và checkpoint chất lượng.
 - [X] Hoàn thiện `slides.pdf` tối đa 10 slide, tập present 10 phút; deck ở [output/slides.pdf](output/slides.pdf), nguồn ở [output/slides.html](output/slides.html).
-- [X] Rà TODO, nguồn, ẩn danh, khai báo AI; bảo đảm ban tổ chức truy cập repo.
+- [X] Rà các TODO đã biết, nguồn, ẩn danh, khai báo AI; các TODO còn lại được giữ như evidence gap và không đánh dấu hoàn thành giả.
 
 
 

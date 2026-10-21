@@ -23,7 +23,8 @@ Thay đổi từ scaffold sang prototype có thể chạy; **chưa có thay đ�
 
 | Mã | Nguồn T…/tác vụ | Trước | Sau | Lý do ưu tiên | Kiểm tra lại |
 | --- | --- | --- | --- | --- | --- |
-| CHANGE-01 | Chưa có | — | — | — | — |
+| CHANGE-01 | Mai Tiến Huy / điều phối phòng | Danh sách phòng chưa có số người đợi và thời gian xử lý trung bình | Đã thêm dữ liệu hàng đợi, công thức ước tính và gợi ý thứ tự lấy số trong prototype | Ảnh hưởng trực tiếp đến quyết định đi phòng nào trước | Cần usability test lại; chưa có thời gian/hành vi thực đo |
+| CHANGE-02 | Phạm Khánh Linh / phiếu kết quả và màn hình nhân viên | Giải thích chung chung, lộ mã kỹ thuật, bối cảnh và phiên bản chưa rõ; màn hình có khối/nút lặp | Đã ghi nhận thành backlog sửa UI/nội dung; chưa triển khai toàn bộ vì cần thêm thiết kế và kiểm tra chuyên môn | Người bệnh không hiểu phần AI và nhân viên dễ bối rối khi thao tác | Chưa thử lại; không tuyên bố đã giải quyết |
 
 ## Rà soát kỹ thuật — 18/10/2026
 

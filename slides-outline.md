@@ -13,6 +13,6 @@
 | 7 | Demo hai phía: lấy mẫu xong đi tiếp; kết quả độc lập; AI soạn/bác sĩ duyệt | 05-prototype, chỉ dữ liệu giả lập | 1:30 |
 | 8 | Test kỹ thuật đã có, review sử dụng còn giới hạn; lỗi phát hiện và thay đổi | test-log/changelog; technical-validation | 1:15 |
 | 9 | Rủi ro nguồn sai, bản duyệt cũ, nhầm vai AI; hỗ trợ trực tiếp | 06-rui-ro-dao-duc | 1:00 |
-| 10 | Coach 18 giờ, điều học được, bước tiếp theo | 07-coach-plan | 1:00 |
+| 10 | Coach 18 giờ, điều học được, roadmap hội chẩn sau kết quả và bước tiếp theo | 07-coach-plan; 05-prototype/consultation-plan.md | 1:00 |
 
 Tổng 10:00. Mỗi claim có mã nguồn/bằng chứng phù hợp. Ghi rõ phần AI tạo; phân biệt demo mẫu với API thật và duyệt mô phỏng. Không dùng test tự động làm bằng chứng usability. PDF đã kiểm tra có 10 trang; link thử qua Wi-Fi chung: `http://192.168.1.84:4174/test-guide`.
